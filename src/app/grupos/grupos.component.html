@@ -1,0 +1,33 @@
+<div class="container">
+
+    <h1>Grupos</h1>
+  <hr>
+
+
+  <div cdkDropListGroup>
+    <div class="example-container">
+      <h2>Grupos</h2>
+      <input type="text" [(ngModel)]="buscar" class="form-control" placeholder="Buscar clientes">
+
+      <div
+        cdkDropList
+        [cdkDropListData]="grupo1"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of grupo1 | filterCheck: buscar" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+
+    <div class="example-container">
+      <h2>Grupos 2</h2>
+
+      <div
+        cdkDropList
+        [cdkDropListData]="grupo2"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of grupo2" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+</div>
+</div>

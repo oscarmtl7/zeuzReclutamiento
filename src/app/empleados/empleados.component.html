@@ -1,0 +1,36 @@
+<div class="card border-primary mb-3 principal-card">
+  <div class="card-header">
+    <div class=" form-group text-right">
+        <input type="text" [(ngModel)]="buscar" class="form-control" placeholder="Buscar clientes">
+    </div>
+  </div>
+    <div class="card-body text-primary">
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/empleados/form/form']">Crear Empleado</button>
+      </div>
+
+          <table class="table table-bordered table-striped" >
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha de nacimiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let empleado of empleados | filter: buscar |  paginate: { itemsPerPage: 10, currentPage: page }">
+                <td>{{ empleado.id}}</td>
+                <td>{{ empleado.name }}</td>
+                <td>{{ empleado.last_name }}</td>
+                <td>{{ empleado.birthday }}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+      <!--  <app-paginator *ngIf="paginador" [paginador]= "paginador"></app-paginator> -->
+    </div>
+</div>
