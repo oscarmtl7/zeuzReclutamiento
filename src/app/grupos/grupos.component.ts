@@ -1,13 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {GruposService } from './../grupos/grupos.service';
+import {ThemePalette} from '@angular/material/core';
+
+
+export interface Task {
+  name: string;
+  completed: boolean;
+  color: ThemePalette;
+  subtasks?: Task[];
+}
+
 
 @Component({
   selector: 'app-grupos',
   templateUrl: './grupos.component.html',
   styleUrls: ['./grupos.component.css'],
+
 })
+
 export class GruposComponent implements OnInit {
+
 
   buscar = '';
   descripcion='';

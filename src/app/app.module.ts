@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 /*Components*/
 import { AppComponent } from './app.component';
@@ -46,7 +47,8 @@ import { FilterCheckPipe } from './shared/pipes/filter-check.pipe';
     ReactiveFormsModule,
     FormsModule,
     DragDropModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule
   ],
   providers: [EmpleadoService],
   bootstrap: [AppComponent]

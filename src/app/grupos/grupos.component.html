@@ -24,18 +24,28 @@
         [cdkDropListData]="grupo2"
         class="example-list"
         (cdkDropListDropped)="drop($event)">
-        <mat-accordion *ngFor="let item of grupo2" cdkDrag>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  {{item}}
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <mat-expansion-panel-body *ngFor="let nombres of grupo3" >
-              <p>{{nombres}}</p>
-              </mat-expansion-panel-body>
-            </mat-expansion-panel>
-          </mat-accordion>
+<ul *ngFor="let item of grupo2">
+        <section class="example-section">
+          <span class="example-list-section">
+
+              <mat-checkbox>
+                <li>{{item}}</li>
+              </mat-checkbox>
+
+
+          </span>
+
+          <span class="example-list-section">
+            <ul>
+              <li *ngFor="let nombres of grupo3">
+                <mat-checkbox>
+                  {{nombres}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </section>
+        </ul>
       </div>
     </div>
 </div>
