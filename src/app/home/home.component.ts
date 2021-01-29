@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-home',

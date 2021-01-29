@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 /*Components*/
 import { AppComponent } from './app.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
@@ -43,7 +45,8 @@ import { FilterCheckPipe } from './shared/pipes/filter-check.pipe';
     NgxPaginationModule,
     ReactiveFormsModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    MatExpansionModule
   ],
   providers: [EmpleadoService],
   bootstrap: [AppComponent]
