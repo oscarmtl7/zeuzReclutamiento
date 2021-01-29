@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {EmpleadoService } from './../empleados/empleado.service';
+import {GruposService } from './../grupos/grupos.service';
 import { element } from 'protractor';
 
 @Component({
@@ -14,26 +14,34 @@ export class GruposComponent implements OnInit {
   grupo1: string[] = [];
 
   grupo2 = [
-    'Pepe',
+    'Phyton',
   ];
 
-  constructor(private empleadoService:EmpleadoService) { }
+  constructor(private gruposService:GruposService) { }
 
   ngOnInit(): void {
-    this.empleadoService.getEmpleado().subscribe(response =>{
+    this.gruposService.getGrupo().subscribe(response =>{
        // this.grupo1 = response.data.employees as Empleado[];
-       response.data.employees.forEach((element: any) => this.grupo1.push(element.name));
+       response.data.groups.forEach((element: any) => this.grupo1.push(element.name));
      });
+
   }
 
   drop(event: CdkDragDrop<string[]>) {
+    console.log("esto:",event)
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
+
     } else {
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
+                             this.gruposService.searchById(2).subscribe( response => {
+                               console.log(response);
+                             });
+
     }
   }
 
